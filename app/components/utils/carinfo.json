@@ -1,0 +1,7 @@
+[
+    { "id": 1, "src": "/images/cars/car-red.png", "alt": "Red Car" },
+    { "id": 2, "src": "/images/cars/car-blue.png", "alt": "Blue Car" },
+    { "id": 3, "src": "/images/cars/car-orange.png", "alt": "Orange Car" },
+    { "id": 4, "src": "/images/cars/car-yellow.png", "alt": "Yellow Car" },
+    { "id": 5, "src": "/images/cars/car-orange.png", "alt": "Orange Car" }
+  ]
