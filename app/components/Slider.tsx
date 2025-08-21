@@ -1,21 +1,30 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type CarFace = {
   id: number;
+  name: string;
+  model: string;
+  desc: string;
+  myear: number;
   src: string;
   alt: string;
 };
 
 interface CarProps {
   cars: CarFace[];
+  onChangeActiveIndex?: (index: number) => void;
 }
 
-export default function Slider({ cars }: CarProps) {
+export default function Slider({ cars, onChangeActiveIndex }: CarProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    onChangeActiveIndex?.(activeIndex);
+  }, [activeIndex, onChangeActiveIndex]);
 
   const prevSlide = () => {
     setActiveIndex((prev) => (prev === 0 ? cars.length - 1 : prev - 1));
@@ -33,7 +42,7 @@ export default function Slider({ cars }: CarProps) {
           return (
             <div
               key={car.id}
-              className={`absolute transition-opacity duration-1200 ease-in-out   ${
+              className={`absolute transition-opacity duration-1200 ease-in-out ${
                 isActive ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
             >
@@ -49,23 +58,20 @@ export default function Slider({ cars }: CarProps) {
         })}
       </div>
 
-      <div className="flex justify-center items-center gap-4">
-        <div>
-          <button
-            onClick={prevSlide}
-            className=" z-10 bg-black/30 p-3 rounded-full"
-          >
-            <ChevronLeft className="text-white w-6 h-6" />
-          </button>
-        </div>
-        <div>
-          <button
-            onClick={nextSlide}
-            className="z-10 bg-black/30 p-3 rounded-full"
-          >
-            <ChevronRight className="text-white w-6 h-6" />
-          </button>
-        </div>
+      <div className="flex justify-center items-center gap-4 mt-4">
+        <button
+          onClick={prevSlide}
+          className="z-10 bg-black/30 p-3 rounded-full"
+        >
+          <ChevronLeft className="text-white w-6 h-6" />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className="z-10 bg-black/30 p-3 rounded-full"
+        >
+          <ChevronRight className="text-white w-6 h-6" />
+        </button>
       </div>
     </div>
   );

@@ -1,7 +1,42 @@
 [
-    { "id": 1, "src": "/images/cars/car-red.png", "alt": "Red Car" },
-    { "id": 2, "src": "/images/cars/car-blue.png", "alt": "Blue Car" },
-    { "id": 3, "src": "/images/cars/car-orange.png", "alt": "Orange Car" },
-    { "id": 4, "src": "/images/cars/car-yellow.png", "alt": "Yellow Car" },
-    { "id": 5, "src": "/images/cars/car-orange.png", "alt": "Orange Car" }
+    { 
+      "id": 1, 
+      "name" : "Car 1",
+      "model" : "exx",
+      "myear" : 2023,
+      "desc" : "test",
+      "src": "/images/cars/car-red.png", 
+      "alt": "red car",
+      "color": "bg-red-500"
+    },
+    { 
+      "id": 2, 
+      "name" : "Car 2",
+      "model" : "exx",
+      "myear" : 2023,
+      "desc" : "test",
+      "src": "/images/cars/car-blue.png", 
+      "alt": "blue car",
+      "color" : "bg-blue-500"
+    },
+    { 
+      "id": 3, 
+      "name" : "Car 3",
+      "model" : "exx",
+      "myear" : 2023,
+      "desc" : "test",
+      "src": "/images/cars/car-orange.png", 
+      "alt": "orange car",
+      "color": "bg-orange-500" 
+    },
+    { 
+      "id": 4, 
+      "name" : "Car 4",
+      "model" : "exx",
+      "myear" : 2023,
+      "desc" : "test",
+      "src": "/images/cars/car-yellow.png",
+      "alt": "yellow car",
+      "color" : "bg-yellow-400"
+      }
   ]
