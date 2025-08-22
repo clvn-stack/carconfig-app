@@ -3,6 +3,7 @@ import { useState } from "react";
 import Content from "./components/Content";
 import Slider from "./components/Slider";
 import Carinfo from "./components/utils/carinfo.json";
+import Bullets from "./components/Bullets";
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -13,7 +14,8 @@ export default function Home() {
           <div className="title font-bold text-2xl">Carbrochure</div>
         </div>
       </div>
-      <main className="h-screen flex flex-col items-center justify-center">
+      <main className="h-screen flex flex-col items-center justify-center ">
+        <Bullets bulletdata={Carinfo} selectedCar={Carinfo[activeIndex]} />
         <Slider cars={Carinfo} onChangeActiveIndex={setActiveIndex} />
         <Content selectedCar={Carinfo[activeIndex]} allCars={Carinfo} />
       </main>

@@ -1,11 +1,16 @@
 import React from "react";
+import { Snowflake, Bolt } from "lucide-react";
+import CountUp from "react-countup";
 
 type CarFace = {
   id: number;
   name: string;
   model: string;
+  speed: number;
   myear: number;
   desc: string;
+  temp: number;
+  fuel: number;
   src: string;
   alt: string;
   color: string;
@@ -21,66 +26,60 @@ const Content = ({ selectedCar, allCars }: CarProps) => {
     <div className="w-full">
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-white p-4">
         <div className="col-span-1">
-          <div className="p-4 rounded-2xl flex flex-col gap-2">
-            <div className="font-bold text-2xl capitalize">
-              name : {selectedCar.name}
+          <div className="p-4 rounded-2xl flex flex-col gap-1">
+            <div className="font-bold text-4xl capitalize">
+              {selectedCar.name}
             </div>
-            <div className="text-lg capitalize">
+            <div className="text-md capitalize text-gray-400">
               model : {selectedCar.model}
             </div>
-            <div className="text-lg capitalize">year : {selectedCar.myear}</div>
-          </div>
-        </div>
-        <div className="col-span-1">
-          <div className="p-4 bg-black/0 h-32 flex gap-6 justify-center items-center">
-            <div
-              className="radial-progress"
-              style={
-                {
-                  "--value": "70",
-                  "--size": "8rem",
-                  "--thickness": "2px",
-                } as React.CSSProperties
-              }
-              aria-valuenow={70}
-              role="progressbar"
-            >
-              32°C
-            </div>
-            <div
-              className="radial-progress"
-              style={
-                {
-                  "--value": "70",
-                  "--size": "8rem",
-                  "--thickness": "2px",
-                } as React.CSSProperties
-              }
-              aria-valuenow={70}
-              role="progressbar"
-            >
-              32°C
+            <div className="text-md capitalize text-gray-400">
+              year : {selectedCar.myear}
             </div>
           </div>
         </div>
         <div className="col-span-1">
-          <div className="p-4 bg-black/0 h-32 flex flex-col gap-4 items-center justify-center">
-            <progress
-              className="progress w-full"
-              value="40"
-              max="100"
-            ></progress>
-
-            <progress
-              className="progress w-full"
-              value="70"
-              max="100"
-            ></progress>
-            <progress
-              className="progress w-full"
-              value="100"
-              max="100"
-            ></progress>
+          <div className="p-4 bg-black/0 h-32 flex gap-12 justify-center items-center">
+            <div className="flex flex-col">
+              <div className="text-4xl font-bold">
+                <CountUp end={selectedCar.speed} duration={3} />
+                <span className="text-xl font-bold italic">ms</span>
+              </div>
+              <div className="font-bold text-md text-gray-400">k/m</div>
+            </div>
+            <div className="flex flex-col">
+              <div className="text-4xl font-bold">
+                <CountUp end={selectedCar.fuel} duration={3} />
+                <span className="text-xl font-bold italic">L</span>
+              </div>
+              <div className="font-bold text-md text-gray-400">Liters</div>
+            </div>
+          </div>
+        </div>
+        <div className="col-span-1">
+          <div className="p-4 bg-black/0 h-32 flex flex-col gap-2 items-center justify-center">
+            <div className="flex w-full gap-4 justify-center items-center">
+              <div>
+                <Bolt size={24} />
+              </div>
+              <div className="w-full bg-gray-400 rounded h-2 overflow-hidden">
+                <div
+                  className="h-4 bg-white transition-all duration-700 ease-in-out"
+                  style={{ width: `${selectedCar.fuel}%` }}
+                ></div>
+              </div>
+            </div>
+            <div className="flex w-full gap-4 justify-center items-center">
+              <div>
+                <Snowflake size={24} />
+              </div>
+              <div className="w-full bg-gray-400 rounded h-2 overflow-hidden">
+                <div
+                  className="h-4 bg-white transition-all duration-700 ease-in-out"
+                  style={{ width: `${selectedCar.temp}%` }}
+                ></div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="col-span-1">

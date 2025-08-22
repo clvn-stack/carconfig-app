@@ -35,7 +35,12 @@ export default function Slider({ cars, onChangeActiveIndex }: CarProps) {
   };
 
   return (
-    <div className="relative w-full max-w-[1200px] mx-auto flex flex-col justify-center items-center p-6">
+    <div className="relative w-full max-w-[1400px] mx-auto flex flex-col justify-center items-center p-6">
+      <div className="absolute inset-0 md:flex justify-center items-center pointer-events-none -translate-y-40 hidden ">
+        <h1 className="text-[60px] md:text-[90px] lg:text-[130px] font-bold uppercase text-white/5 tracking-wide">
+          {cars[activeIndex].name}
+        </h1>
+      </div>
       <div className="w-[320px] md:w-[520px] lg:w-full h-[200px] lg:h-[400px] flex justify-center items-center relative">
         {cars.map((car, idx) => {
           const isActive = idx === activeIndex;
